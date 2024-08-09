@@ -18,6 +18,15 @@ This uses a wheel built from `poetry build`:
 Hello, world!
 ```
 
+You can even install directly from github:
+
+```
+# export PIPX_HOME=/opt/pipx
+# export PIPX_BIN_DIR=/usr/local/bin/
+# pipx install git+https://github.com/i-hill/python-cli-tool.git
+% my-tool
+Hello, world!
+```
 
 ## Configuration
 
