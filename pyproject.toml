@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "my-tool"
+version = "1.0.0"
+description = "An example of how to structure and build a CLI tool in Python."
+authors = ["Ian Hill <ian@cellar.org.uk>"]
+readme = "README.md"
+packages = [{include = "my_tool", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+click = "^8.1.7"
+confuse = "^2.0.1"
+
+[tool.poetry.scripts]
+my-tool = "my_tool.cli:command"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.2"
+pytest-mock = "^3.14.0"
+
+[tool.pytest.ini_options]
+filterwarnings = "ignore::DeprecationWarning"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
