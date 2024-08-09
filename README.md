@@ -36,6 +36,28 @@ You can also use environment variables:
 Hello, Bob!
 ```
 
+## Invocation
+
+I always use the [click](https://click.palletsprojects.com/en/) project
+for managing the CLI itself. You can easily build really complex apps this way -
+mine is just an example!
+
+```
+% my-tool --help
+Usage: my-tool [OPTIONS]
+
+  Say hello to the nice people.
+
+Options:
+  -s, --shout  Speak more loudly.
+  -h, --help   Show this message and exit.
+
+% my-tool
+Hello, world!
+% my-tool --shout
+HELLO, WORLD!
+```
+
 ## Testing
 
 Some example tests have been provided to give a flavour. Run them 
