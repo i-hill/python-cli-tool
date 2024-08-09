@@ -6,15 +6,18 @@ This is really the main bit. The goal is to easily deploy a sytem-wide
 application ready to run from the CLI or cron.
 
 I think the best tool for this is `pipx`. You can configure it to install
-to a system bin directory for maximum ease:
+to a system bin directory for maximum ease.
+
+This uses a wheel built from `poetry build`:
 
 ```
-% export PIPX_HOME=/opt/pipx
-% export PIPX_BIN_DIR=/usr/local/bin/
-% pipx install ./my_tool-1.0.0-py3-none-any.whl
+# export PIPX_HOME=/opt/pipx
+# export PIPX_BIN_DIR=/usr/local/bin/
+# pipx install ./my_tool-1.0.0-py3-none-any.whl
 % my-tool
 Hello, world!
 ```
+
 
 ## Configuration
 
