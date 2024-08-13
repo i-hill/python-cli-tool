@@ -1,5 +1,5 @@
 """
-The main application CLI."
+The main application CLI.
 """
 
 import click
