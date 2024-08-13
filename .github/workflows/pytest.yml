@@ -29,4 +29,9 @@ jobs:
       env:
         pytest_github_report: true
       run: |
-        poetry run pytest
+        poetry run pytest --cov --cov-report xml:coverage.xml
+        echo '## Test Coverage Report\n' >> $GITHUB_STEP_SUMMARY
+        poetry run python -m coverage report --omit="tests/*" \
+            --precision=2 --fail-under 95 \
+            --format=markdown >>  $GITHUB_STEP_SUMMARY
+
