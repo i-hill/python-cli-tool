@@ -1,0 +1,45 @@
+---
+- name: Install packages
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - pipx
+
+- name: Check if My Tool is installed in pipx
+  community.general.pipx_info:
+    name: my-tool
+  environment:
+    PIPX_HOME: /opt/pipx/
+    PIPX_BIN_DIR: /usr/local/bin/
+  register: pipx_mytool
+
+- name: Extract My Tool version
+  set_fact:
+    mytool_correct_version: "{{ pipx_mytool.application |  selectattr('version', 'match', mytool.version) | length > 0 }}"
+
+- name: Install My Tool via pipx
+  when: not mytool_correct_version|bool
+  community.general.pipx:
+    name: my-tool
+    source: "{{ mytool.url }}"
+    state: install
+    force: true
+  environment:
+    PIPX_HOME: /opt/pipx/
+    PIPX_BIN_DIR: /usr/local/bin/
+
+- name: Make My Tool configuration directory
+  ansible.builtin.file:
+    path: /etc/mytool/
+    owner: root
+    group: root
+    state: directory
+
+- name: Build My Tool configuration
+  ansible.builtin.template:
+    src: config.yml
+    dest: /etc/mytool/config.yaml
+    owner: root
+    group: root
+    mode: '0644'

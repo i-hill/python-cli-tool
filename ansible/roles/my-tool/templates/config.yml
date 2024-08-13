@@ -1,0 +1,3 @@
+{% for key, value in mytool.config.items() %}
+{{ key }}: "{{ value }}"
+{% endfor %}

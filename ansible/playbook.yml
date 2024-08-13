@@ -1,0 +1,5 @@
+- hosts: mytool
+  name: Install My Tool
+  become: yes
+  roles:
+    - my-tool

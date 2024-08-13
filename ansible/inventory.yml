@@ -1,0 +1,9 @@
+mytool:
+  hosts:
+    test:	
+      ansible_host: 10.178.191.250
+      mytool:
+        version: 1.0.2
+        url: https://github.com/i-hill/python-cli-tool/releases/download/1.0.2/my_tool-1.0.2-py3-none-any.whl
+        config:
+          name: Bob
