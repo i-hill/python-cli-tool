@@ -80,6 +80,4 @@ like this:
 % poetry run pytest
 ```
 
-Ideally you'd run this from your CI pipeline with protections to
-ensure a clean environment (for example, running them in a disposable
-container).
+These are also run from GitHub actions and a nice report is output.
