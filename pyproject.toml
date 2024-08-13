@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "my-tool"
-version = "1.0.0"
+version = "0.0.0"
 description = "An example of how to structure and build a CLI tool in Python."
 authors = ["Ian Hill <ian@cellar.org.uk>"]
 readme = "README.md"

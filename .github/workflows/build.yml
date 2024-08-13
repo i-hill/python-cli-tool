@@ -1,0 +1,32 @@
+name: Build release
+
+on:
+  push:
+    tags:
+      - "*.*.*"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+    - name: Install Poetry
+      uses: snok/install-poetry@v1.3.4
+      with:
+        version: 1.8.3
+        plugins: |
+          poetry-git-version-plugin
+    - name: Build
+      run: |
+        poetry build -f wheel --no-interaction
+    - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: "dist/*.whl"
