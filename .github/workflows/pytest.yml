@@ -26,5 +26,7 @@ jobs:
       run: |
         poetry install --no-interaction
     - name: Run tests
+      env:
+        pytest_github_report: true
       run: |
         poetry run pytest

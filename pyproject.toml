@@ -17,6 +17,7 @@ my-tool = "my_tool.cli:command"
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.2"
 pytest-mock = "^3.14.0"
+pytest-github-report = "^0.0.1"
 
 [tool.pytest.ini_options]
 filterwarnings = "ignore::DeprecationWarning"
