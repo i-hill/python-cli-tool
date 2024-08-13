@@ -1,5 +1,7 @@
 An example of how to structure and build a CLI tool in Python.
 
+![Run test suite](https://github.com/i-hill/python-cli-tool/actions/workflows/pytest.yml/badge.svg)
+
 ## Packaging and installation
 
 This is really the main bit. The goal is to easily deploy a sytem-wide
